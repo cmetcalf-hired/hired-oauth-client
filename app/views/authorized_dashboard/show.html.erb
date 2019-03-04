@@ -1,2 +1,5 @@
-<%= "#{current_user.name} is signed in." %>
-<%= logout_link %>
+<div>Authenticated by Hired.com</div>
+<div><%= "Name: #{current_user.name}" %></div>
+<div><%= "Email: #{current_user.email}" %></div>
+
+<div><%= logout_link %></div>

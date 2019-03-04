@@ -23,6 +23,9 @@ ActiveRecord::Schema.define(version: 2019_02_28_212456) do
     t.datetime "remember_created_at"
     t.string "provider"
     t.string "uid"
+    t.string "name"
+    t.string "role"
+    t.string "hired_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

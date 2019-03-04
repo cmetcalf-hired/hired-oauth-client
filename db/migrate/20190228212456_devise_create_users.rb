@@ -36,6 +36,11 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :provider
       t.string :uid
 
+      # Hired
+      t.string  :name
+      t.string  :role
+      t.string  :hired_type
+
       t.timestamps null: false
     end
 
