@@ -2,9 +2,14 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
 
-
   authenticated :user do
     root to: "authorized_dashboard#show", as: :authenticated_root
+  end
+
+  scope '/hired' do
+    get 'challenge', to: 'challenges#new'
+    post 'challenges', to: 'challenges#create'
+    post 'gql', to: 'gql#mutate'
   end
 
   root to: "dashboard#show"

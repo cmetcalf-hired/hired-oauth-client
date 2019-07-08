@@ -1,6 +1,5 @@
-class AuthorizedDashboardController < ApplicationController
+class AuthorizedDashboardController < AuthorizedController
   # GET /dashboard
   def show
-    authenticate_user!
   end
 end
