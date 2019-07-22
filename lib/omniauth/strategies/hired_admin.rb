@@ -1,8 +1,8 @@
 module OmniAuth
   module Strategies
-    class Hired < OmniAuth::Strategies::OAuth2
+    class HiredAdmin < OmniAuth::Strategies::OAuth2
       option :client_options, {
-        site:          Rails.configuration.hired['url'],
+        site:          Rails.configuration.hired['admin_url'],
         authorize_url: '/oauth/authorize',
         token_url:     '/oauth/token',
         me_url:        '/api/v1/me',

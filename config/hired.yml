@@ -1,0 +1,15 @@
+default: &default
+  client_id: <%= ENV.fetch("HIRED_CLIENT_ID") %>
+  client_secret: <%= ENV.fetch("HIRED_CLIENT_SECRET") %>
+  url: <%= ENV.fetch("HIRED_URL") %>
+  admin_url: <%= ENV.fetch("HIRED_ADMIN_URL") %>
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+# TODO: what are these environments pulled from?
+uat:
+  <<: *default

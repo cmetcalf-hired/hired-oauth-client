@@ -9,48 +9,48 @@
   <h3>Form contents</h3>
   <div>
     <%= f.label :id %>
-    <%= f.text_field :id, value: @challenge.token %>
-    <span>default: <%= @challenge.token %></span>
+    <%= f.text_field :id, value: @challenge.id %>
+    <!-- <span>default: <%= @challenge.id %></span> -->
   <div>
   <div>
     <%= f.label :completed_at %>
     <%= f.text_field :completed_at %>
-    <span>default: <%= @challenge.completed_at || 'NULL' %></span>
+    <!-- <span>default: <%= @challenge.completed_at || 'NULL' %></span> -->
   <div>
   <div>
     <%= f.label :invited_at %>
     <%= f.text_field :invited_at %>
-    <span>default: <%= @challenge.invited_at || 'NULL' %></span>
+    <!-- <span>default: <%= @challenge.invited_at || 'NULL' %></span> -->
   <div>
   <div>
     <%= f.label :started_at %>
     <%= f.text_field :started_at %>
-    <span>default: <%= @challenge.started_at || 'NULL' %></span>
+    <!-- <span>default: <%= @challenge.started_at || 'NULL' %></span> -->
   <div>
   <div>
     <%= f.label :results_url %>
     <%= f.text_field :results_url %>
-    <span>default: <%= @challenge.results_url || 'NULL' %></span>
+    <!-- <span>default: <%= @challenge.results_url || 'NULL' %></span> -->
   <div>
   <div>
     <%= f.label :time_taken %>
     <%= f.text_field :time_taken %>
-    <span>default: <%= @challenge.time_taken || 'NULL' %></span>
+    <!-- <span>default: <%= @challenge.time_taken || 'NULL' %></span> -->
   <div>
   <div>
     <%= f.label :score %>
     <%= f.text_field :score %>
-    <span>default: <%= @challenge.score %></span>
+    <!-- <span>default: <%= @challenge.score %></span> -->
   <div>
   <div>
     <%= f.label :points %>
     <%= f.text_field :points %>
-    <span>default: <%= @challenge.points %></span>
+    <!-- <span>default: <%= @challenge.points %></span> -->
   <div>
   <div>
     <%= f.label :score_card %>
     <%= f.text_area :score_card %>
-    <span>default: <%= @challenge.score_card || 'NULL' %></span>
+    <!-- <span>default: <%= @challenge.score_card || 'NULL' %></span> -->
   <div>
   <div>
     <%= f.submit "Finish Challenge" %>

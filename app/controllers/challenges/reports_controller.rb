@@ -1,17 +1,5 @@
-class ChallengesController < AuthorizedController
+module Challenges; class ReportsController < AuthorizedController
   # GET /challenge
-  def new
-    @challenge = Challenge.new(challenge_payload)
-  end
-
-  def create
-    @challenge = Challenge.new(challenge_params)
-
-    AttemptWebhookJob.perform_later(@challenge.to_json)
-
-    redirect_to hired_return_url.to_s, status: :found
-  end
-
   def show
     @challenge = Challenge.new(challenge_payload)
   end
@@ -38,4 +26,4 @@ class ChallengesController < AuthorizedController
   def challenge_params
     params.fetch(:challenge, {}).permit(*Challenge::Attributes)
   end
-end
+end; end

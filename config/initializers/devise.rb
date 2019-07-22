@@ -262,7 +262,18 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-  config.omniauth :hired, ENV.fetch("HIRED_CLIENT_ID"), ENV.fetch("HIRED_CLIENT_SECRET")
+  config.omniauth(
+    :hired,
+    Rails.configuration.hired['client_id'],
+    Rails.configuration.hired['client_secret']
+  )
+
+  # config.omniauth(
+  #   :hired_admin,
+  #   Rails.configuration.hired['client_id'],
+  #   Rails.configuration.hired['client_secret']
+  # )
+
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

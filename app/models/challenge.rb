@@ -6,7 +6,7 @@ class Challenge
 
   attr_accessor *Attributes
 
-  def webhook_json
+  def to_json
     <<~JSON.squish
     {
       "monotonic_event_id": "#{id || token}",
@@ -18,18 +18,32 @@ class Challenge
         "points": #{points || 0},
         "score": #{score || 0}
       },
-      "status": "needs_review",
-      "status": "needs_review",
+      "status": "#{status}",
       "time_taken_seconds": #{time_taken}
     }
     JSON
+  end
+
+  def results_url
+    Rails.application.routes.url_helpers.report_url(id)
+  end
+
+  def status
+    case
+    when completed_at.present?
+      'needs_review'
+    when started_at.present?
+      'started'
+    when invited_at.present?
+      'invited'
+    end
   end
 
   def score_card
     @score_card ||= {}
   end
 
-  def score_card_body
+  def score_card_json
     return '' if score_card.empty?
 
     <<~JSON.squish

@@ -1,13 +1,12 @@
 class AttemptWebhookJob < ApplicationJob
   queue_as :default
 
-  def perform(challenge_params)
-    Rails.logger.debug { challenge_params }
+  def perform(webhook_payload)
+    Rails.logger.debug { webhook_payload }
 
-    challenge = Challenge.new(challenge_params)
     conn = Faraday.new(url: ENV.fetch('HIRED_URL'), ssl: { verify: false })
     conn.token_auth('authentication-token')
-    conn.patch("/api/webhooks/assessment-attempts/#{challenge.id}", challenge.webhook_json)
+    conn.patch("/api/webhooks/assessment-attempts/#{webhook_payload['monotonic_event_id']}", webhook_payload)
 
     Rails.logger.info { 'did a thing' }
 
