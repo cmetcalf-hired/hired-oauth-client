@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "#{Rails.root}/lib/omniauth/strategies/hired.rb"
+require "#{Rails.root}/lib/omniauth/strategies/hired_admin.rb"
 
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
@@ -268,11 +269,11 @@ Devise.setup do |config|
     Rails.configuration.hired['client_secret']
   )
 
-  # config.omniauth(
-  #   :hired_admin,
-  #   Rails.configuration.hired['client_id'],
-  #   Rails.configuration.hired['client_secret']
-  # )
+  config.omniauth(
+    :hired_admin,
+    Rails.configuration.hired['client_id'],
+    Rails.configuration.hired['client_secret']
+  )
 
 
   # ==> Warden configuration

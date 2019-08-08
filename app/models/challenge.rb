@@ -24,10 +24,6 @@ class Challenge
     JSON
   end
 
-  def results_url
-    Rails.application.routes.url_helpers.report_url(id)
-  end
-
   def status
     case
     when completed_at.present?

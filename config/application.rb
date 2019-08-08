@@ -27,6 +27,6 @@ module AuthApp
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
-    config.hired =  config_for(:hired)
+    config.hired = config_for(:hired)
   end
 end

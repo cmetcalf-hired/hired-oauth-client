@@ -11,10 +11,11 @@ module Challenges; class ReportsController < AuthorizedController
   end
 
   def payload
-    @_payload ||= begin
-      decoded_token = JWT.decode params[:token], nil, false
-      decoded_token.first
-    end
+    @_payload ||= {}
+    # begin
+    #   decoded_token = JWT.decode params[:token], nil, false
+    #   decoded_token.first
+    # end
   end
 
   def hired_return_url

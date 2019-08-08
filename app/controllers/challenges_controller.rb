@@ -2,6 +2,8 @@ class ChallengesController < AuthorizedController
   # GET /challenge
   def new
     @challenge = Challenge.new(challenge_payload)
+
+    render :edit
   end
 
   def create
@@ -12,7 +14,7 @@ class ChallengesController < AuthorizedController
     redirect_to hired_return_url.to_s, status: :found
   end
 
-  def show
+  def edit
     @challenge = Challenge.new(challenge_payload)
   end
 
@@ -22,11 +24,12 @@ class ChallengesController < AuthorizedController
     @_challenge_payload ||= payload.transform_keys(&:to_sym).slice(*Challenge::Attributes)
   end
 
+  def decoded_token
+    JWT.decode params[:token], nil, false
+  end
+
   def payload
-    @_payload ||= begin
-      decoded_token = JWT.decode params[:token], nil, false
-      decoded_token.first
-    end
+    @_payload ||= decoded_token.first
   end
 
   def hired_return_url

@@ -24,6 +24,8 @@ gem 'webpacker'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-oauth2'
+gem 'faraday_middleware'
+gem 'simple_oauth'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -40,7 +42,6 @@ end
 
 group :development do
   gem 'pry-remote'
-  gem 'better_errors'
 end
 
 group :test do

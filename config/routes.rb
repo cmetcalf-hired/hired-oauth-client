@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   scope 'hired' do
     get 'challenge', to: 'challenges#new', as: 'new_challenge'
     post 'challenges', to: 'challenges#create', as: 'challenges'
-    get 'challenges/:id', to: 'challenges#show', as: 'challenge'
+    get 'challenges/:id', to: 'challenges#edit', as: 'challenge'
 
     post 'gql', to: 'challenges/registrations#create'
     get 'challenge/report/:id', to: 'challenges/reports#show', as: 'report'
